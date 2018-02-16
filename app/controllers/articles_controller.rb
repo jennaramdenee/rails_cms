@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    body = Article.replace_images(params[:body])
+    body = Article.add_file_properties(params[:body])
 
     @article = Article.new(title: params[:title], summary: params[:summary], body: body)
   end
