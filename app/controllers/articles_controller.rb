@@ -1,3 +1,5 @@
+require 'json'
+
 class ArticlesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -6,9 +8,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    body = Article.add_file_properties(params[:body])
-
-    @article = Article.new(title: params[:title], summary: params[:summary], body: body)
+    request_body = JSON.parse(request.body.read)
+    params_hash = Article.create_params_hash(request_body)
+    # Make some new hash with params
+    @article = Article.new(title: params_hash[:title], summary: params_hash[:summary], body: params_hash[:body])
+    if @article.save
+      redirect_to @article
+    else
+      raise StandardError, 'Failed to create article'
+    end
   end
 
   def new
@@ -24,9 +32,9 @@ class ArticlesController < ApplicationController
   def destroy
   end
 
-  private
-
-  def article_params
-    params.require(:article).permit(:title)
-  end
+  # private
+  #
+  # def article_params
+  #   params.require(:article).permit(:title)
+  # end
 end

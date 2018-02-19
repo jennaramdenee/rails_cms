@@ -1,17 +1,14 @@
 require 'open-uri'
 
 class Article < ApplicationRecord
-  attr_accessor :title, :summary, :body
+  has_and_belongs_to_many :collections
+
+  validates :title, presence: true
 
   def self.add_file_properties(body)
-    # links = body.split(" ").map do |word|
-    #   require 'irb'; binding.irb
-    #   word.scan(/\[.+\]\((http.+.pdf|\.doc)\)/)
-    # end
-
     extracted_names_and_links = body.scan(/\[([^\]]+)\]\((http[^)]+)\)/)
 
-    require 'irb'; binding.irb
+    # require 'irb'; binding.irb
     extracted_names_and_links.each_with_index do |extracted_name_and_link, index|
       if extracted_name_and_link[1].ends_with?('.doc') || extracted_name_and_link[1].ends_with?('.pdf')
         file_stream = open(extracted_name_and_link[1])
@@ -19,6 +16,14 @@ class Article < ApplicationRecord
         File.size(open("#{Rails.root}/tmp/#{index}"))
       end
     end
+  end
 
+  def self.create_params_hash(request_body)
+    fields = request_body['fields']
+    params_hash = {
+      title: fields['title']['en-US'],
+      summary: fields['summary']['en-US'],
+      body: fields['body']['en-US']
+    }
   end
 end

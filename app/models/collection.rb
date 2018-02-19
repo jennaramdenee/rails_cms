@@ -1,4 +1,3 @@
 class Collection < ApplicationRecord
-  attr_accessor :title
-  has_many :articles
+  has_and_belongs_to_many :articles
 end
