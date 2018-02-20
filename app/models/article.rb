@@ -9,32 +9,8 @@ class Article < ApplicationRecord
     '.pdf' => 'PDF'
   }
 
-  def self.add_file_properties(body)
-    extracted_names_and_links = body.scan(/\[([^\]]+)\]\((https[^)]+)\)/)
-
-    extracted_names_and_links.each_with_index do |extracted_name_and_link, index|
-      if ACCEPTED_FORMATS_HASH.keys.include?(File.extname(extracted_name_and_link[1]))
-        file_stream = open(extracted_name_and_link[1])
-        IO.copy_stream(file_stream, "#{Rails.root}/tmp/#{index}")
-
-        file_size = File.size(open("#{Rails.root}/tmp/#{index}")) / 1000
-        file_type = ACCEPTED_FORMATS_HASH[(File.extname(extracted_name_and_link[1]))]
-
-        File.delete("#{Rails.root}/tmp/#{index}")
-
-        new_name = "#{extracted_name_and_link[0]} (#{file_type}, #{file_size}KB)"
-        body.gsub!(extracted_name_and_link[0], new_name)
-      end
-    end
-
-    body
-  end
-
-  def self.replace_images(body)
-    # extracted_image_links =
-  end
-
-  def self.generate_pdf(body)
+  def self.format_newlines(body)
+    body.gsub!(/\\n|\\n\\n/, "\n")
   end
 
   def self.extract_params(request_body)
@@ -48,8 +24,11 @@ class Article < ApplicationRecord
 
   # Final output
   def self.create_params_hash(request_body)
-    params_hash = extract_params(request_body)
-    params_hash[:body] = add_file_properties(params_hash[:body])
+    params_hash = Article.extract_params(request_body)
+
+    params_hash[:body] = Article.format_newlines(params_hash[:body])
+    params_hash[:body] = MarkdownConverters.convert(params_hash[:body])
+
     params_hash
   end
 
