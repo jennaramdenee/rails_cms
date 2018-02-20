@@ -8,7 +8,7 @@ RSpec.describe Article do
 
   context '#add_file_properties' do
     it 'can find images from a body of markdown' do
-      expect(Article.add_file_properties(article.body)).to include('(PDF, 45KB)')
+      expect(Article.add_file_properties(article.body)).to include('(PDF, 243KB)')
     end
   end
 
