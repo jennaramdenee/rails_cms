@@ -1,4 +1,4 @@
-module MarkdownConverters
+module MarkdownConverter
   class AttachmentConverter
     class << self
 

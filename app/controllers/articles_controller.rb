@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   def create
     request_body = JSON.parse(request.body.read)
     params_hash = Article.extract_params(request_body)
+    p params_hash[:body]
     # Make some new hash with params
     @article = Article.new(title: params_hash[:title], summary: params_hash[:summary], body: params_hash[:body])
     if @article.save

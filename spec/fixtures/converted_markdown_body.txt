@@ -1,8 +1,29 @@
 ## Heading 2
-What do we do when lightening strikes? Brush up on [Parliamentary Evolution (PDF, 45KB)](https://www.parliament.uk/documents/parliamentary-archives/evolution.pdf) of course. Just a piece of procedure linked by a delightful PDF, described on [Wikipedia](https://en.wikipedia.org/wiki/Portable_Document_Format). Not a PDF of course.
+What do we do when lightening strikes? Brush up on [Parliamentary Evolution (PDF, 243KB)](https://www.parliament.uk/documents/parliamentary-archives/evolution.pdf) of course. Just a piece of procedure linked by a delightful PDF, described on [Wikipedia](https://en.wikipedia.org/wiki/Portable_Document_Format). Not a PDF of course.
 
 *Hopeful*
 What I gotta do to make you love me? Call a general election of course.
 ![general-election-2017](//images.contentful.com/3t6txrpcx29n/4TUou817hCMAMgcYyQYUeE/bf8e90962701acda5f785ee00663cefd/general-election-2017.png)
 
 Sorry does, in fact, seem to be the hardest word.
+## Steps
+
+These steps are for you as an MP, rather than your staff, because they take place in the Chamber.
+
+<a href="https://pbs.twimg.com/media/DU9eAOlXcAE8zkB.jpg:large" class="embedly-card" data-card-width="100%" data-card-controls="0">Embedded content: https://pbs.twimg.com/media/DU9eAOlXcAE8zkB.jpg:large</a>
+
+<a href="https://api.parliament.uk/Staging/photo/S3bGSTqn.jpeg?crop=CU_5:2&width=1464&quality=80" class="embedly-card" data-card-width="100%" data-card-controls="0">Embedded content: https://api.parliament.uk/Staging/photo/S3bGSTqn.jpeg?crop=CU_5:2&width=1464&quality=80</a>
+
+1.    You can't submit a business question in advance. Make sure you are seated in the Chamber for the start of business questions on Thursday (10.30 am if there are no urgent questions).  If you aren't present at the start, you won't be called to ask a question.<a href='#1'>1</a>
+2.    Wait for the Leader of the House to set out the future business and sit down. Then stand to indicate to the Speaker that you wish to ask a question. Keep standing every time the Leader of the House sits down until the Speaker calls you or the time for business questions runs out.<a href='#a'>a</a>
+3.    When the Speaker calls you, ask your question.<a href='#b'>b</a> You can use the question to raise an issue of concern, but you should relate it to the business of the House. For example, "When can we have a debate on…[subject of interest]."<a href='#2'>2</a><a href='#3'>3</a><a href='#c'>c</a>
+
+![09](//images.contentful.com/yrtmgw1r9t3e/7s51sy6KjYSW66emc6KSW0/18b02fb13ff0c9ce339fc87c5d7c19e9/09.png)
+
+
+<a name='#1'>And thats footnote 1.</a>
+<a name='#2'>And thats footnote 2.</a>
+<a name='#3'>And thats footnote 3.</a>
+<a name='#a'>And thats footnote a.</a>
+<a name='#b'>And thats footnote b.</a>
+<a name='#c'>And thats footnote c.</a>
