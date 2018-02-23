@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
+      ContentfulHelper.unpublish_entry(request_body)
       raise StandardError, 'Failed to create article'
     end
   end
