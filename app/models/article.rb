@@ -11,6 +11,7 @@ class Article < ApplicationRecord
 
   def self.format_newlines(body)
     body.gsub!(/\\n|\\n\\n/, "\n")
+    body
   end
 
   def self.extract_params(request_body)
@@ -22,12 +23,11 @@ class Article < ApplicationRecord
     }
   end
 
-  # Final output
   def self.create_params_hash(request_body)
     params_hash = Article.extract_params(request_body)
 
     params_hash[:body] = Article.format_newlines(params_hash[:body])
-    params_hash[:body] = MarkdownConverters.convert(params_hash[:body])
+    params_hash[:body] = MarkdownConverter.convert(params_hash[:body])
 
     params_hash
   end
